@@ -20,18 +20,24 @@
 }
 
 .App-header {
-  background-color: #666666;
+  background: rgb(2,1,14);
+  background: linear-gradient(90deg, rgba(2,1,14,1) 0%, rgba(9,9,121,1) 73%, rgba(0,212,255,1) 100%);
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  flex-direction: row;
   font-size: calc(10px + 2vmin);
   color: white;
+  height: 12rem;
 }
 
-.logo{
-  height: 17rem;
-  width: 55%;
+.cinema{
+  height: 12rem;
+  width: 20rem;
+}
+
+.title{
+ width: 15rem;
+ margin-left: 22rem;
+
 }
 
 .App-link {
@@ -41,40 +47,118 @@
 .nav-menu{
   display: flex;
   flex-direction: row;
-  background-color: #9a9a9a;
+  background-color: #143359;
   justify-content: space-evenly;
+  height: 4rem;
 
 }
 
-.home-button{
+#home-button{
   width: 10rem;
-  height: 5rem;
+  height: 3rem;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color: #5c5c5c;
+  color: rgb(15, 15, 176);
+  background-color: white;
   font-size: 1rem;
-  border-radius: 51%;
+  margin-top: 0.5rem;
 }
 
-select{
+
+
+#filters{
   width: 10rem;
-  height: 5rem;
+  height: 3rem;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color: #5c5c5c;
+  color: rgb(15, 15, 176);
+  font-weight: bold;
   font-size: 1rem;
-  border-radius: 51%;
+  padding: 0.3rem;
+  margin-top: 0.5rem;
+}
+
+#order{
+  width: 10rem;
+  height: 3rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: rgb(15, 15, 176);
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 0.3rem;
+  margin-top: 0.5rem;
 }
 
 option{
   width: 10rem;
-  height: 5rem;
+  height: 4rem;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color: #5c5c5c;
+  color: rgb(15, 15, 176);
   font-size: 1rem;
-  border-radius: 51%;
+  border-radius: 50%;
 }
 
 body{
-  background-image: url("./components/img/background-movie.jpg");
+  background-image: url("./components/img/rollo.avif");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+
+#title-more{
+  color: white;
+  font-family: fantasy;
+  font-size: 4rem;
+  margin-top: 1rem;
+}
+
+.cards-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.cards{
+  flex: 23%;
+  margin: 0.5rem;
+  max-width: 18rem;
+  max-height: 29rem;
+  font-size: 12px;
+  color: white;
+}
+
+#movie-title{
+  color: white;
+  font-weight: bold;
+}
+
+.card-text{
+  background-color: #4a67da;
+}
+
+#pre-next{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+  
+}
+
+#pre-btn{
+  color:  rgb(15, 15, 176);
+ 
+}
+#next-btn{
+  color:  rgb(15, 15, 176);
+}
+
+
+p{
+  color: white;
+  background-color: #143359;;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+  margin-top: 0.2rem;
 }
 
 @keyframes App-logo-spin {
