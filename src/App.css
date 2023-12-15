@@ -122,7 +122,7 @@ body{
   flex: 23%;
   margin: 0.5rem;
   max-width: 18rem;
-  max-height: 29rem;
+  max-height: 35rem;
   font-size: 12px;
   color: white;
 }
@@ -130,6 +130,10 @@ body{
 #movie-title{
   color: white;
   font-weight: bold;
+}
+
+#movie-img{
+  height: 390px
 }
 
 .card-text{

@@ -3,21 +3,26 @@ import "./App.css";
 import Header from "./components/Header";
 import NavbarMenu from "./components/NavbarMenu/NavbarMenu";
 import MovieCards from "./components/MovieCards/MovieCards";
-import PaginationButtons from "./components/Buttons/PaginationButtons";
+import PaginationButtons from "./components/PaginationButtons/PaginationButtons";
 import Footer from "./components/Footer";
 import { useFetch } from "./hooks/useFetch";
+import Router from "./router/router"
 
 const App = () => {
   const [movies, setMovies] = useState([]);
 
   const [genreId, setGenreId] = useState("");
 
-  const [pageNumber, setPageNumber] = useState(1);
+  const [sortBy, setSortBy] = useState("");
+
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const [movieSelect, setMovieSelect] = useState({});
 
   // Create the URL based on state values
-  const url = `https://api.themoviedb.org/3/discover/movie?api_key=54148e3525e5866210d37456cc9a22d9&page=${pageNumber}&with_genres=${genreId}`;
+  const urlMoviesList = `https://api.themoviedb.org/3/discover/movie?api_key=54148e3525e5866210d37456cc9a22d9&page=${currentPage}&with_genres=${genreId}${sortBy ? `&sort_by=${sortBy}`: ''}`;
 
-  const { data: moviesResponse, error: movieError, loading } = useFetch(url);
+  const { data: moviesResponse, error: movieError, loading } = useFetch(urlMoviesList);
 
   const {
     data: genreResponse,
@@ -31,35 +36,37 @@ const App = () => {
     setGenreId(genreId);
   };
 
+  const selectOrder = (sortBy) => {
+    setSortBy(sortBy);
+  }
+
   const selectPage = (newPageNumber) => {
-    console.log(newPageNumber)
-    setPageNumber(newPageNumber);
+    setCurrentPage(newPageNumber);
   };
 
-  const nextPage = () => {
-    setPageNumber(pageNumber + 1);
-  };
-
-  const previousPage = () => {
-    setPageNumber(pageNumber - 1);
-  };
+  const selectMovie = (selectedMovie) => {
+    setMovieSelect(selectedMovie);
+    console.log(selectedMovie)
+  }
 
   useEffect(() => {
     setMovies(moviesResponse.results);
   }, [moviesResponse]);
 
+  
+
   return (
     <div className="App">
       <Header />
       {!loadingGenre && (
-        <NavbarMenu genres={genreResponse.genres} selectGenre={selectGenre} />
+        <NavbarMenu genres={genreResponse.genres} selectGenre={selectGenre} selectOrder={selectOrder}/>
       )}
-      {movies && <MovieCards movies={movies} />}
+      {movies && <MovieCards movies={movies} selectMovie={selectMovie}/>}
+
       <PaginationButtons
-        nextPage={nextPage}
-        previousPage={previousPage}
+        totalItems={moviesResponse.total_results}
+        currentPage={currentPage}
         selectPage={selectPage}
-        totalPages={moviesResponse.total_pages}
       />
       <Footer />
     </div>
