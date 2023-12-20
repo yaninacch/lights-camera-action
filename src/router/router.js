@@ -1,10 +1,12 @@
 import { Routes, Route } from "react-router-dom";
-import CardDetail from "../pages/details/CardDetail";
+import CardDetail from "../pages/Details/Details";
+import MovieList from "../components/MovieList";
 
-const Router = () => {
+const Router = ({ movies }) => {
   return (
     <Routes>
-      <Route exact path="/movie/:id" element={<CardDetail />} />
+      <Route exact path="/" element={<MovieList movies={movies} />} />
+      <Route exact path="/details/:id" element={<CardDetail />} />
     </Routes>
   );
 };

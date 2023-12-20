@@ -118,11 +118,11 @@ body{
   padding: 1rem;
 }
 
-.cards{
+#cards {
   flex: 23%;
   margin: 0.5rem;
   max-width: 18rem;
-  max-height: 35rem;
+  height: 35rem;
   font-size: 12px;
   color: white;
 }
@@ -132,8 +132,10 @@ body{
   font-weight: bold;
 }
 
-#movie-img{
-  height: 390px
+#movie-img a{
+  height: 390px;
+  width: 260;
+  max-height: 390px;
 }
 
 .card-text{
@@ -163,6 +165,26 @@ p{
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: bold;
   margin-top: 0.2rem;
+}
+
+#movie-details{
+  display: flex;
+  flex-direction: row;
+  width: 600px;
+  justify-content: center;
+  margin-left: 28rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+#movie-details-img{
+  height: 400px;
+  width: 300px;
+}
+
+#movie-details-title{
+  font-size: 2rem;
+  color: white;
 }
 
 @keyframes App-logo-spin {
