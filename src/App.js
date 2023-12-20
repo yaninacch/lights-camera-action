@@ -6,7 +6,8 @@ import MovieCards from "./components/MovieCards/MovieCards";
 import PaginationButtons from "./components/PaginationButtons/PaginationButtons";
 import Footer from "./components/Footer";
 import { useFetch } from "./hooks/useFetch";
-import Router from "./router/router"
+import Router from "./router/router";
+import CardDetail from "./pages/Details/Details";
 
 const App = () => {
   const [movies, setMovies] = useState([]);
@@ -17,12 +18,17 @@ const App = () => {
 
   const [currentPage, setCurrentPage] = useState(1);
 
-  const [movieSelect, setMovieSelect] = useState({});
 
   // Create the URL based on state values
-  const urlMoviesList = `https://api.themoviedb.org/3/discover/movie?api_key=54148e3525e5866210d37456cc9a22d9&page=${currentPage}&with_genres=${genreId}${sortBy ? `&sort_by=${sortBy}`: ''}`;
+  const urlMoviesList = `https://api.themoviedb.org/3/discover/movie?api_key=54148e3525e5866210d37456cc9a22d9&page=${currentPage}&with_genres=${genreId}${
+    sortBy ? `&sort_by=${sortBy}` : ""
+  }`;
 
-  const { data: moviesResponse, error: movieError, loading } = useFetch(urlMoviesList);
+  const {
+    data: moviesResponse,
+    error: movieError,
+    loading,
+  } = useFetch(urlMoviesList);
 
   const {
     data: genreResponse,
@@ -38,30 +44,30 @@ const App = () => {
 
   const selectOrder = (sortBy) => {
     setSortBy(sortBy);
-  }
+  };
 
   const selectPage = (newPageNumber) => {
     setCurrentPage(newPageNumber);
   };
 
-  const selectMovie = (selectedMovie) => {
-    setMovieSelect(selectedMovie);
-    console.log(selectedMovie)
-  }
 
   useEffect(() => {
     setMovies(moviesResponse.results);
   }, [moviesResponse]);
 
-  
-
   return (
     <div className="App">
       <Header />
       {!loadingGenre && (
-        <NavbarMenu genres={genreResponse.genres} selectGenre={selectGenre} selectOrder={selectOrder}/>
+        <NavbarMenu
+          genres={genreResponse.genres}
+          selectGenre={selectGenre}
+          selectOrder={selectOrder}
+        />
       )}
-      {movies && <MovieCards movies={movies} selectMovie={selectMovie}/>}
+      
+
+      <Router movies={movies} />
 
       <PaginationButtons
         totalItems={moviesResponse.total_results}

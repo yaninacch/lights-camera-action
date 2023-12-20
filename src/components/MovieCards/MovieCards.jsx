@@ -1,20 +1,17 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import photoImg from "../img/photo-not.jpg";
+import photoImg from "../img/Image-Not-Available (2).png";
+import { Link } from "react-router-dom";
 
-const MovieCards = ({ movies, selectMovie }) => {
-  const handleCardClick = (selectedMovie) => {
-    console.log('select card')
-    selectMovie(selectedMovie);
-  };
+const MovieCards = ({ movies }) => {
   return (
     <>
       <h1 id="title-more">MORE POPULAR</h1>
       <ul className="cards-container">
         {movies.map((movie) => {
           return (
-            <>
-              <Card className="cards" onClick={() => handleCardClick(movie)}>
+            <Link to={`/details/${movie.id}`}>
+              <Card id="cards">
                 <Card.Img
                   id="movie-img"
                   variant="top"
@@ -29,7 +26,7 @@ const MovieCards = ({ movies, selectMovie }) => {
                   <Card.Text>Release Year: {movie.release_date}</Card.Text>
                 </Card.Body>
               </Card>
-            </>
+            </Link>
           );
         })}
       </ul>

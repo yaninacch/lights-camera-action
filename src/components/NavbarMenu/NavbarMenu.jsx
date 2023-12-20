@@ -1,6 +1,8 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
+
 
 const NavbarMenu = ({ genres, selectGenre, selectOrder }) => {
   const handleGenreChange = (e) => {
@@ -13,7 +15,7 @@ const NavbarMenu = ({ genres, selectGenre, selectOrder }) => {
 
   return (
     <div className="nav-menu">
-      <Button id="home-button">HOME</Button>
+      <Link to="/"><Button id="home-button">HOME</Button></Link>
 
       <Form.Select
         aria-label="Default select example"
