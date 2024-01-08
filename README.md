@@ -73,6 +73,9 @@ Las funcionalidades que este proyecto requiere son implementar el uso de una api
 
 ## 6. Pruebas unitarias
 
-Se realizaron pruebas unitarias de cada componente: Header, NavBarMenu, MovieCards, PaginationButtons, useFetch y Details.
+Se realizaron pruebas unitarias de cada componente: Header, NavBarMenu, MovieCards, PaginationButtons y Details. En el componente Header se testeó que se renderizaran las imágenes. En el caso del NavBarMenu, además de renderizar el componente, la prueba se realizó sobre las funciones selectGenre y orderBy.
+Tanto para el componente MovieCards como MovieList, el test permite mostrar que se impriman en pantalla el catálogo de películas.
+En el caso de PaginationButtons, debe mostrar los botones correspondientes al paginado.
+Por último, en Details se mockea el useLocation ya que el componente obtiene el movie id del pathname. Dentro de este test, también se mockea el hook useFetch.
 
 ## 7. Despliegue en Vercel
