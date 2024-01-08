@@ -2,12 +2,13 @@ import React from "react";
 import { Card } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 import { useFetch } from "../../hooks/useFetch";
-import photoImg from "../../components/img/Image-Not-Available (2).png"
+import photoImg from "../../components/img/Image-Not-Available.png"
 
 const Details = () => {
   const location = useLocation();
+  console.log(location)
   const movieId = location.pathname.split("/")[2];
-
+ 
   const {
     data: movie,
     error,
@@ -15,7 +16,7 @@ const Details = () => {
   } = useFetch(
     `https://api.themoviedb.org/3/movie/${movieId}?language=en-US&api_key=54148e3525e5866210d37456cc9a22d9`
   );
-  console.log(movie);
+  
 
   if (loadingMovie) return <p>Loading movie details...</p>;
 
