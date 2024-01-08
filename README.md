@@ -1,70 +1,78 @@
-# Getting Started with Create React App
+Movie Challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Índice
 
-## Available Scripts
+[1. Definición del Producto](#1-definición-del-producto)
 
-In the project directory, you can run:
+[2. Prototipo de baja fidelidad](#2-prototipo-de-baja-fidelidad)
 
-### `npm start`
+[3. Prototipo de alta fidelidad](#3-prototipo-de-alta-fidelidad)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[4. Historias de usuarios](#4-historias-de-usuarios)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+[5. Funcionalidades](#5-funcionalidades)
 
-### `npm test`
+[6. Pruebas unitarias](#6-pruebas-unitarias)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[7. Despliegue en Vercel](#7-despliegue-en-vercel)
 
-### `npm run build`
+## 1. Definición del Producto
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Es una SPA (Single Page Aplication) realizada con React, en la cual se puede visualizar un catálogo de películas. Cada película cuenta con una imagen y el año de lanzamiento.
+También se visualiza una paginación para ver las determinadas películas que se encuentran en cada página.
+Esta SPA cuenta con un filtro por género, se puede ordenar por más popular y menos popular, así como también por las que obtubieron mayor y menor ganancia.
+Al hacer click sobre cada película, se pueder ver el detalle. Un breve resumen de la película, año de lanzamiento, géneros, promedio de votación y total de votos.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 2. Prototipo de baja fidelidad
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Imagen Home](/src/components/img/bajafid1.png)
+![Imagen Details](/src/components/img/bajafid2.png)
 
-### `npm run eject`
+## 3. Prototipo de alta fidelidad
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![Imagen Home](/src/components/img/Movie-Challenge.png)
+![Imagen Detalis](/src/components/img/Movie-Challenge1%20(2).png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 4. Historias de usuarios
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Historia de usuario 1
+Listado de películas
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Yo como usuaria quiero visualizar en un tabla (filas y columnas) el catálogo de películas
 
-## Learn More
+Criterios de aceptación:
+Se debe usar el endpoint /discover/movie.
+La aplicación cuenta con una paginación para explorar el catálogo por páginas.
+Para cada película se debe mostrar como mínimo: poster, título original y año de lanzamiento.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Historia de usuario 2
+Filtro y ordenamiento
 
-### Code Splitting
+Yo como usuaria quiero filtrar y ordenar el catálogo de películas usando los criterios soportados por TheMovie Database API V3
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Criterios de aceptación:
+Para filtrar se debe usar el endpoint /discover/movie, y alguno de sus parámetros como por ejemplo with_genres.
+Para ordenar se debe usar el endpoint /discover/movie, y alguno de sus parámetros como por ejemplo sort_by.
+La paginación debe conservar el filtro y ordenamiento
+Para cada película se debe mostrar como mínimo: poster, título original y año de lanzamiento.
 
-### Analyzing the Bundle Size
+Historia de usuario 3
+Detalle de una película
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Yo como usuaria quiero consultar los detalles de una película
 
-### Making a Progressive Web App
+Criterios de aceptación:
+Se debe usar el endpoint /movie/{movie_id}.
+Para la película se debe mostrar como mínimo: poster, título original, año de lanzamiento, géneros, promedio de votación y total de votos.
+La interfaz debe permitir retornar al listado de películas conservando el filtro y ordenamiento.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 5. Funcionalidades
 
-### Advanced Configuration
+Las funcionalidades que este proyecto requiere son implementar el uso de una api para renderizar un catálogo de películas, filtrar por género y que cuente con un tipo de ordenamiento.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 6. Pruebas unitarias
 
-### Deployment
+Se realizaron pruebas unitarias de cada componente: Header, NavBarMenu, MovieCards, PaginationButtons, useFetch y Details.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 7. Despliegue en Vercel

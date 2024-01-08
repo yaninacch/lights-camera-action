@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import photoImg from "../img/Image-Not-Available (2).png";
+import photoImg from "../img/Image-Not-Available.png";
 import { Link } from "react-router-dom";
 
 const MovieCards = ({ movies }) => {
