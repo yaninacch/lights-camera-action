@@ -4,10 +4,9 @@ import Header from "./components/Header/Header";
 import NavbarMenu from "./components/NavbarMenu/NavbarMenu";
 import MovieCards from "./components/MovieCards/MovieCards";
 import PaginationButtons from "./components/PaginationButtons/PaginationButtons";
-import Footer from "./components/Footer";
 import { useFetch } from "./hooks/useFetch";
 import Router from "./router/router";
-import CardDetail from "./pages/Details/Details";
+
 import { useLocation } from "react-router-dom";
 
 const App = () => {
@@ -76,7 +75,6 @@ const App = () => {
           selectPage={selectPage}
         />
       )}
-      <Footer />
     </div>
   );
 };
