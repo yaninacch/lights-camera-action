@@ -79,3 +79,5 @@ En el caso de PaginationButtons, debe mostrar los botones correspondientes al pa
 Por último, en Details se mockea el useLocation ya que el componente obtiene el movie id del pathname. Dentro de este test, también se mockea el hook useFetch.
 
 ## 7. Despliegue en Vercel
+
+https://lights-camera-action-9ukx.vercel.app/
